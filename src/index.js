@@ -10,21 +10,43 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  uri: 'https://flyby-gateway.herokuapp.com/',
+  uri: 'http://localhost:4000/',
   cache: new InMemoryCache(),
 });
 
 client
   .query({
     query: gql`
-      query GetLocations {
-        locations {
+    query GetCategories {
+      categories {
+        name
+        products{
           id
           name
+          inStock
+          gallery
           description
-          photo
+          category
+          attributes{
+            id
+            name
+            type
+            items{
+              displayValue
+              value
+              id
+            }
+          }
+          prices{
+            currency{
+              label
+              symbol
+            }
+          }
+          brand
         }
       }
+    }
     `,
   })
   .then((result) => console.log(result));

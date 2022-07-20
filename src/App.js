@@ -36,7 +36,7 @@ export default function App() {
     <div>
       <h2>My first Apollo app 🚀</h2>
       <br />
-      <DisplayLocations />
+      {/* <DisplayLocations /> */}
     </div>
   );
 }
