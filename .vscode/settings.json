@@ -2,10 +2,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": [
-    "javascript"
-  ],
-  "cSpell.words": [
-    "tailwindcss"
-  ],"css.lint.unknownAtRules": "ignore"
+  "eslint.validate": ["javascript"],
+  "files.autoSave": "onFocusChange"
 }
