@@ -3,5 +3,8 @@
     "source.fixAll.eslint": true
   },
   "eslint.validate": ["javascript"],
-  "files.autoSave": "onFocusChange"
+  "files.autoSave": "onFocusChange",
+  "cSpell.words": [
+    "scandiweb"
+  ]
 }
