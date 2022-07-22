@@ -9,39 +9,41 @@ export const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-client
-  .query({
-    query: gql`
-    query GetCategories {
-      categories {
+const GET_CATEGORIES_QUERY = gql`
+query GetCategories {
+  categories {
+    name
+    products{
+      id
+      name
+      inStock
+      gallery
+      description
+      category
+      attributes{
+        id
         name
-        products{
+        type
+        items{
+          displayValue
+          value
           id
-          name
-          inStock
-          gallery
-          description
-          category
-          attributes{
-            id
-            name
-            type
-            items{
-              displayValue
-              value
-              id
-            }
-          }
-          prices{
-            currency{
-              label
-              symbol
-            }
-          }
-          brand
         }
       }
+      prices{
+        currency{
+          label
+          symbol
+        }
+      }
+      brand
     }
-    `,
+  }
+}
+`;
+
+client
+  .query({
+    query: GET_CATEGORIES_QUERY,
   })
   .then((result) => console.log(result));
