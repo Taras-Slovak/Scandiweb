@@ -1,49 +1,42 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-} from '@apollo/client';
+import { gql } from '@apollo/client';
 
-export const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
-  cache: new InMemoryCache(),
-});
-
-const GET_CATEGORIES_QUERY = gql`
-query GetCategories {
-  categories {
-    name
-    products{
-      id
+export const GET_ALL_QUERY = gql`
+  query GetAllData {
+    categories {
       name
-      inStock
-      gallery
-      description
-      category
-      attributes{
+      products{
         id
         name
-        type
-        items{
-          displayValue
-          value
+        inStock
+        gallery
+        description
+        category
+        attributes{
           id
+          name
+          type
+          items{
+            displayValue
+            value
+            id
+          }
         }
-      }
-      prices{
-        currency{
-          label
-          symbol
+        prices{
+          currency{
+            label
+            symbol
+          }
         }
+        brand
       }
-      brand
     }
   }
-}
 `;
 
-client
-  .query({
-    query: GET_CATEGORIES_QUERY,
-  })
-  .then((result) => console.log(result));
+export const GET_CATEGORY_QUERY = gql`
+  query GetCategories {
+    categories {
+      name
+    }
+  }
+`;

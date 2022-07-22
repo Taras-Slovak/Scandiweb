@@ -1,7 +1,6 @@
-
 import React, { PureComponent } from 'react';
 
-export class SourceProductCart extends PureComponent {
+export class Currency extends PureComponent {
     render() {
         return (
           <h1>
@@ -11,4 +10,4 @@ export class SourceProductCart extends PureComponent {
     }
 }
 
-export default SourceProductCart;
+export default Currency;

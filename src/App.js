@@ -1,32 +1,18 @@
 import React from 'react';
 
-import { useQuery, gql } from '@apollo/client';
-
-const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
-      id
-      name
-      description
-      photo
-    }
-  }
-`;
+import { useQuery } from '@apollo/client';
+import { GET_CATEGORY_QUERY } from './query';
 
 function DisplayLocations() {
-  const { loading, error, data } = useQuery(GET_LOCATIONS);
+  const { loading, error, data } = useQuery(GET_CATEGORY_QUERY);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.locations.map(({ id, name, description, photo }) => (
-    <div key={id}>
+  return data.categories.map(({ name }) => (
+    <div key={name}>
       <h3>{name}</h3>
-      <img width="400" height="250" alt="location-reference" src={`${photo}`} />
-      <br />
-      <b>About this location:</b>
-      <p>{description}</p>
-      <br />
+
     </div>
   ));
 }
@@ -36,7 +22,7 @@ export default function App() {
     <div>
       <h2>My first Apollo app 🚀</h2>
       <br />
-      {/* <DisplayLocations /> */}
+      <DisplayLocations />
     </div>
   );
 }
