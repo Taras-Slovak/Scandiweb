@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
+import { Routes, Route } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+
 import { GET_CATEGORY_QUERY } from './query';
+
+import { Cart, Category, Minicart, Product } from './route';
 
 function DisplayLocations() {
   const { loading, error, data } = useQuery(GET_CATEGORY_QUERY);
@@ -12,17 +16,21 @@ function DisplayLocations() {
   return data.categories.map(({ name }) => (
     <div key={name}>
       <h3>{name}</h3>
-
     </div>
   ));
 }
 
-export default function App() {
-  return (
-    <div>
-      <h2>My first Apollo app 🚀</h2>
-      <br />
-      <DisplayLocations />
-    </div>
-  );
+export class App extends PureComponent {
+  render() {
+      return (
+        <Routes>
+          <Route path="/" element={<Category />} />
+          <Route path="product/:id" element={<Product />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="minicart" element={<Minicart />} />
+        </Routes>
+      );
+  }
 }
+
+export default App;

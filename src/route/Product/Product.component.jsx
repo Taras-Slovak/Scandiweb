@@ -1,13 +1,13 @@
+
 import React, { PureComponent } from 'react';
 
-export class Currency extends PureComponent {
+export class Product extends PureComponent {
     render() {
         return (
           <h1>
-            We have overridden the ProductCard component!
+            Product
           </h1>
         );
     }
 }
 
-export default Currency;

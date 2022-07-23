@@ -4,7 +4,7 @@ export class Navigation extends PureComponent {
     render() {
         return (
           <h1>
-            We have overridden the ProductCard component!
+            Navigation
           </h1>
         );
     }
