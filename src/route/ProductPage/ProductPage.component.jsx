@@ -1,11 +1,13 @@
+
 import React, { PureComponent } from 'react';
 
-export class Currency extends PureComponent {
+export class ProductPage extends PureComponent {
     render() {
         return (
           <h1>
-            Currency
+            Product
           </h1>
         );
     }
 }
+

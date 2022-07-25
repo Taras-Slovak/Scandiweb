@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import reportWebVitals from './reportWebVitals';
+import './style/main.style.scss';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',

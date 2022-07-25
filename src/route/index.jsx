@@ -1,4 +1,4 @@
-export { Cart } from './Cart/Cart.component';
-export { Category } from './Category/Category.component';
-export { Minicart } from './Minicart/Minicart.component';
-export { Product } from './Product/Product.component';
+export { CartPage } from './CartPage/CartPage.component';
+export { CategoryPage } from './CategoryPage/CategoryPage.component';
+export { MinicartPage } from './MinicartPage/MinicartPage.component';
+export { ProductPage } from './ProductPage/ProductPage.component';

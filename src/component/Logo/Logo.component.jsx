@@ -1,13 +1,11 @@
-
 import React, { PureComponent } from 'react';
 
-export class Cart extends PureComponent {
+export class Logo extends PureComponent {
     render() {
         return (
           <h1>
-            Cart
+            Logo Main
           </h1>
         );
     }
 }
-

@@ -1,11 +1,10 @@
-
 import React, { PureComponent } from 'react';
 
-export class Product extends PureComponent {
+export class MinicartPage extends PureComponent {
     render() {
         return (
           <h1>
-            Product
+            Minicart
           </h1>
         );
     }

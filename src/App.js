@@ -4,8 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import { GET_CATEGORY_QUERY } from './query';
-
-import { Cart, Category, Minicart, Product } from './route';
+import { CartPage, CategoryPage, MinicartPage, ProductPage } from './route';
 
 function DisplayLocations() {
   const { loading, error, data } = useQuery(GET_CATEGORY_QUERY);
@@ -23,12 +22,15 @@ function DisplayLocations() {
 export class App extends PureComponent {
   render() {
       return (
-        <Routes>
-          <Route path="/" element={<Category />} />
-          <Route path="product/:id" element={<Product />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="minicart" element={<Minicart />} />
-        </Routes>
+        <div className="wrapper">
+          <Routes>
+            <Route path="/" element={<CategoryPage />} />
+            <Route path="product/:id" element={<ProductPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="minicart" element={<MinicartPage />} />
+          </Routes>
+        </div>
+
       );
   }
 }
