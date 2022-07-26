@@ -13,6 +13,7 @@ export class CategoryPage extends PureComponent {
               <Curt />
             </header>
             <main className="main">
+
               <h1 className="main__title">Category</h1>
             </main>
           </>
