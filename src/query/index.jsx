@@ -42,19 +42,19 @@ const GET_CATEGORIES = gql`
   }
 `;
 
-// const GET_PRODUCTS_LIST = gql`
-//   query GetProductsList {
-//     category(input: { title: "all" }) {
-//       name
-//       products {
-//         id
-//         name
-//         inStock
-//         gallery
-//       }
-//     }
-//   }
-// `;
+const GET_PRODUCTS_LIST = gql`
+  query GetProductsList {
+    category(input: { title: "all" }) {
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+      }
+    }
+  }
+`;
 
 // const GET_PRODUCT_DETAILS = gql`
 // query GetProductDetails  {
@@ -86,5 +86,10 @@ const GET_CATEGORIES = gql`
 
 export const useGetCategories = () => {
   const { loading, error, data } = useQuery(GET_CATEGORIES);
+  return { loading, error, data };
+};
+
+export const useGetProductsList = () => {
+  const { loading, error, data } = useQuery(GET_PRODUCTS_LIST);
   return { loading, error, data };
 };
