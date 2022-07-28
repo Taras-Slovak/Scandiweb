@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Currency, Curt, Logo, Navigation } from '../../component';
 import { useGetProductsList } from '../../query';
+import noImage from '../../assets/no-image.png';
 import './CategoryPage.style.scss';
 
 function DisplayProductsList() {
@@ -8,16 +9,27 @@ function DisplayProductsList() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  return data.category.products.map(({ name, id, gallery }) => (
+  return data.category.products.map(({ name, id, gallery, prices }) => (
 
     <div className="card" key={id}>
-      <h2 className="card__title">{name}</h2>
-      <img className="card__image" src={gallery[0] === true ? gallery[0] : '../../assets/no-image.png'} />
+      <figure className="card__figure">
+        <img
+          className="card__image"
+          src={gallery[0] || noImage}
+          onError={(e) => { e.target.onerror = null; e.target.src = noImage; }}
+        />
+        <figcaption className="card__name">{name}</figcaption>
+      </figure>
 
+      {prices.filter((price) => price.currency.label === 'USD').map((filteredPrice) => (
+        <div className="card__currency">
+          <p className="card__symbol">{filteredPrice.currency.symbol}</p>
+          <p className="card__amount">{filteredPrice.amount}</p>
+        </div>
+        ))}
     </div>
 
   ));
-  // console.log(data.category.products, '!!!!!!!');
 }
 
 export class CategoryPage extends PureComponent {

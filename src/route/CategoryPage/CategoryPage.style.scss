@@ -7,22 +7,55 @@
 }
 
 .main {
+  &__title{
+    margin-left: 100px;
+    font-weight: 400;
+    font-size: 42px;
+  }
   &__cards{
+    margin-top:100px;
     display:flex;
     flex-wrap: wrap;
-    gap:20px;
+    gap: 103px 40px;
     justify-content: center;
   }
 }
 
 .card{
-  width: 350px;
+width: 386px;
+height: 444px;
+display: flex;
+flex-direction: column;
+transition: all 0.3s ease;
+&:hover{
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
 
-  &__title{
-    font-size:24px;
+  &__figure{    
+    margin-top: 16px;
+    align-self: center;
+    overflow: hidden;  
   }
   &__image{
-    display: block;
-    width: 100%;
+    width: 354px;
+    height: 330px;   
+    object-fit: cover;
+    object-position: 50% 5%;
+  }
+  &__name{
+    margin-top: 24px;
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  &__currency{
+    display:flex;
+    margin-top:5px;
+    margin-left:16px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  &__amount{
+    margin-top:3px;
   }
 }

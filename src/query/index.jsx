@@ -51,9 +51,16 @@ const GET_PRODUCTS_LIST = gql`
         name
         inStock
         gallery
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
       }
     }
-  }
+}
 `;
 
 // const GET_PRODUCT_DETAILS = gql`
